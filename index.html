@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>PEHNLO — Local Fashion, Delivered</title>
+<style>
+:root{--ink:#111;--muted:#737373;--line:#e8e8e8;--paper:#fff;--soft:#f5f5f5}
+*{box-sizing:border-box}body{margin:0;background:#f2f2f2;color:var(--ink);font-family:Inter,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}
+.app{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 40px #0001;padding-bottom:84px}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:15px 17px 12px}
+.top{display:flex;align-items:center;justify-content:space-between}.brand{font-size:27px;letter-spacing:4px;font-weight:900}.tag{font-size:11px;color:var(--muted);margin-top:3px}.cart-btn{background:#111;color:#fff;border:0;border-radius:999px;padding:10px 13px;font-size:13px}
+.location{font-size:12px;color:#555;margin-top:12px}.location b{color:#111}
+main{padding:16px}.search{width:100%;border:1px solid #ddd;background:#f8f8f8;padding:13px 14px;border-radius:12px;outline:none}
+.hero{background:#111;color:#fff;border-radius:18px;padding:22px;margin:16px 0;min-height:155px;position:relative;overflow:hidden}
+.hero:after{content:"P";font-size:150px;font-weight:900;color:#ffffff0c;position:absolute;right:14px;bottom:-44px}
+.eyebrow{font-size:10px;letter-spacing:2px;color:#c9c9c9}.hero h1{font-size:26px;line-height:1.08;margin:11px 0 8px;max-width:240px}.hero p{font-size:12px;color:#d3d3d3;margin:0 0 16px}.pill{border:0;background:#fff;color:#111;padding:9px 13px;border-radius:999px;font-size:12px;font-weight:700}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}.section-head h2{font-size:18px;margin:0}.section-head span{font-size:11px;color:var(--muted)}
+.categories{display:flex;gap:8px;overflow:auto;padding-bottom:3px}.cat{border:1px solid #ddd;background:white;border-radius:999px;padding:9px 13px;white-space:nowrap;font-size:12px}.cat.active{background:#111;color:#fff;border-color:#111}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.product{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;min-width:0}.photo{height:175px;background:#eee;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.photo .emoji{font-size:58px;filter:grayscale(1)}.label{position:absolute;top:9px;left:9px;background:#fff;border-radius:5px;padding:5px 7px;font-size:9px;font-weight:800;letter-spacing:.5px}.pinfo{padding:11px}.pname{font-size:13px;font-weight:700;line-height:1.3}.shop{font-size:10px;color:var(--muted);margin-top:4px}.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:10px}.price{font-weight:800;font-size:15px}.old{font-size:10px;color:#999;text-decoration:line-through;margin-left:4px}.add{border:0;background:#111;color:#fff;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:700}
+.notice{background:#f7f7f7;border-radius:12px;padding:13px;font-size:12px;color:#555;line-height:1.5;margin-top:16px}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:10px 8px calc(10px + env(safe-area-inset-bottom));z-index:8}.nav button{border:0;background:transparent;color:#777;font-size:10px;display:flex;flex-direction:column;gap:4px;align-items:center}.nav button.active{color:#111;font-weight:800}.nav .ico{font-size:18px}
+.view{display:none}.view.active{display:block}
+.back{border:0;background:#f2f2f2;border-radius:9px;padding:9px 12px;margin-bottom:14px}
+.cart-item{display:flex;gap:12px;border-bottom:1px solid var(--line);padding:13px 0}.cart-thumb{width:68px;height:75px;background:#eee;border-radius:9px;display:grid;place-items:center;font-size:30px;filter:grayscale(1)}.cart-detail{flex:1}.cart-detail b{font-size:13px}.cart-detail small{display:block;color:#777;margin-top:5px}.qty{display:flex;gap:12px;align-items:center;margin-top:9px}.qty button{border:1px solid #ddd;background:#fff;border-radius:7px;width:27px;height:27px}.summary{margin-top:20px;background:#f7f7f7;border-radius:14px;padding:15px}.sumrow{display:flex;justify-content:space-between;font-size:13px;margin:10px 0}.sumrow.total{font-size:16px;font-weight:800;border-top:1px solid #ddd;padding-top:13px}.wide{width:100%;border:0;background:#111;color:#fff;padding:14px;border-radius:10px;font-weight:800;margin-top:12px}.field{display:block;width:100%;border:1px solid #ddd;padding:12px;border-radius:10px;margin:9px 0 14px;background:white}.empty{text-align:center;padding:35px 10px;color:#777}.empty strong{display:block;color:#111;font-size:18px;margin-bottom:7px}.success{background:#f4f4f4;padding:18px;border-radius:14px;text-align:center;margin-top:15px}.success .big{font-size:40px}.fine{font-size:11px;color:#777;line-height:1.5}
+@media(min-width:481px){.nav{position:sticky;transform:none;left:auto;width:100%;margin-top:-84px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <div class="top"><div><div class="brand">PEHNLO</div><div class="tag">Kapde pasand karo. Ghar mangwao.</div></div><button class="cart-btn" onclick="showView('cart')">Bag <span id="cartCount">0</span></button></div>
+ <div class="location">⌖ Delivering to <b id="locationLabel">Dwarka, Delhi</b> · <a href="#" onclick="changeLocation();return false" style="color:#111">Change</a></div>
+</header>
+<main>
+<section id="homeView" class="view active">
+ <input class="search" id="search" placeholder="Search shirts, jeans, t-shirts..." oninput="renderProducts()">
+ <div class="hero"><div class="eyebrow">LOCAL SHOPS · YOUR STYLE</div><h1>Good style.<br>Closer than ever.</h1><p>Discover fashion from shops around you.</p><button class="pill" onclick="document.getElementById('productsHeading').scrollIntoView({behavior:'smooth'})">Shop collection ↗</button></div>
+ <div class="section-head"><h2>Categories</h2><span>Find your fit</span></div>
+ <div class="categories" id="categories"></div>
+ <div class="section-head" id="productsHeading"><h2>Popular near you</h2><span>Demo collection</span></div>
+ <div class="grid" id="products"></div>
+ <div class="notice"><b>PEHNLO supports local shops.</b><br>This is a prototype with sample products. No real shop inventory or delivery network is connected yet.</div>
+</section>
+<section id="cartView" class="view">
+ <button class="back" onclick="showView('home')">← Continue shopping</button><h2>Your bag</h2><div id="cartItems"></div><div id="cartSummary"></div>
+</section>
+<section id="ordersView" class="view">
+ <h2>Your orders</h2><div id="ordersContent"></div>
+</section>
+<section id="profileView" class="view">
+ <h2>Your profile</h2><div class="notice">Welcome to PEHNLO. This demo stores your bag and demo orders on this device only.</div>
+ <label style="font-size:12px;font-weight:700">Your name</label><input id="profileName" class="field" placeholder="Enter your name">
+ <label style="font-size:12px;font-weight:700">Mobile number</label><input id="profilePhone" class="field" placeholder="10-digit mobile number" inputmode="numeric" maxlength="10">
+ <button class="wide" onclick="saveProfile()">Save details</button><p class="fine">Demo only: details are not sent to a server.</p>
+</section>
+</main>
+<nav class="nav">
+ <button class="active" data-tab="home" onclick="showView('home')"><span class="ico">⌂</span>Home</button>
+ <button data-tab="cart" onclick="showView('cart')"><span class="ico">▢</span>Bag</button>
+ <button data-tab="orders" onclick="showView('orders')"><span class="ico">◷</span>Orders</button>
+ <button data-tab="profile" onclick="showView('profile')"><span class="ico">○</span>Profile</button>
+</nav>
+</div>
+<script>
+const productsData = [
+ {id:1,name:"Classic Black Shirt",category:"Men",shop:"Ravi Fashion House",price:499,old:699,tag:"BESTSELLER",emoji:"👔"},
+ {id:2,name:"Everyday Denim Jeans",category:"Men",shop:"City Denim Store",price:699,old:899,tag:"POPULAR",emoji:"👖"},
+ {id:3,name:"Oversized White Tee",category:"Men",shop:"Urban Wear Local",price:299,old:399,tag:"NEW",emoji:"👕"},
+ {id:4,name:"Women's Casual Top",category:"Women",shop:"Style Corner",price:449,old:599,tag:"TRENDING",emoji:"👚"},
+ {id:5,name:"Everyday Kurti",category:"Women",shop:"Shree Collection",price:599,old:799,tag:"LOCAL PICK",emoji:"🥻"},
+ {id:6,name:"Kids Cotton Set",category:"Kids",shop:"Little Star Garments",price:399,old:499,tag:"SOFT COTTON",emoji:"🧸"},
+ {id:7,name:"Minimal Crossbody Bag",category:"Accessories",shop:"Metro Accessories",price:349,old:499,tag:"NEW",emoji:"👜"},
+ {id:8,name:"Classic White Sneakers",category:"Shoes",shop:"Footwear Point",price:899,old:1199,tag:"POPULAR",emoji:"👟"}
+];
+let category="All", cart=JSON.parse(localStorage.getItem("pehnloCart")||"{}"), orders=JSON.parse(localStorage.getItem("pehnloOrders")||"[]");
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function saveCart(){localStorage.setItem("pehnloCart",JSON.stringify(cart));updateCount()}
+function updateCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function renderCategories(){let cats=["All","Men","Women","Kids","Accessories","Shoes"];document.getElementById("categories").innerHTML=cats.map(c=>`<button class="cat ${category===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`).join("")}
+function setCategory(c){category=c;renderCategories();renderProducts()}
+function renderProducts(){let q=(document.getElementById("search").value||"").toLowerCase();let list=productsData.filter(p=>(category==="All"||p.category===category)&&(`${p.name} ${p.shop} ${p.category}`).toLowerCase().includes(q));document.getElementById("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo"><span class="emoji">${p.emoji}</span><span class="label">${p.tag}</span></div><div class="pinfo"><div class="pname">${p.name}</div><div class="shop">${p.shop}</div><div class="price-row"><div><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></div><button class="add" onclick="addToCart(${p.id})">+ Add</button></div></div></article>`).join(""):`<div class="empty">No matching products.</div>`}
+function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();renderCart();toast("Added to your bag")}
+function removeOne(id){if(cart[id]>1)cart[id]--;else delete cart[id];saveCart();renderCart()}
+function renderCart(){let ids=Object.keys(cart).map(Number);let box=document.getElementById("cartItems"),sum=document.getElementById("cartSummary");if(!ids.length){box.innerHTML='<div class="empty"><div style="font-size:42px">▢</div><strong>Your bag is empty</strong>Add something you love from local shops.</div>';sum.innerHTML='';return}
+box.innerHTML=ids.map(id=>{let p=productsData.find(x=>x.id===id);return `<div class="cart-item"><div class="cart-thumb">${p.emoji}</div><div class="cart-detail"><b>${p.name}</b><small>${p.shop}</small><div class="qty"><button onclick="removeOne(${id})">−</button><span>${cart[id]}</span><button onclick="addToCart(${id})">+</button><strong style="margin-left:auto">${money(p.price*cart[id])}</strong></div></div></div>`}).join("");
+let subtotal=ids.reduce((s,id)=>s+productsData.find(p=>p.id===id).price*cart[id],0),delivery=subtotal>=999?0:49;
+sum.innerHTML=`<div class="summary"><h3 style="margin-top:0">Price details</h3><div class="sumrow"><span>Item total</span><b>${money(subtotal)}</b></div><div class="sumrow"><span>Delivery (demo)</span><b>${delivery?money(delivery):"FREE"}</b></div><div class="sumrow total"><span>Total</span><span>${money(subtotal+delivery)}</span></div><button class="wide" onclick="checkout()">Continue to checkout</button><p class="fine">Demo checkout only. No payment will be collected.</p></div>`}
+function checkout(){let name=document.getElementById("profileName")?.value||"";let phone=document.getElementById("profilePhone")?.value||"";if(!name.trim()){showView("profile");toast("Add your name in Profile first");return}if(!/^\d{10}$/.test(phone)){showView("profile");toast("Enter a valid 10-digit mobile number");return}let ids=Object.keys(cart).map(Number);let subtotal=ids.reduce((s,id)=>s+productsData.find(p=>p.id===id).price*cart[id],0);let order={id:"PH"+Date.now().toString().slice(-6),date:new Date().toLocaleString(),items:ids.map(id=>({name:productsData.find(p=>p.id===id).name,qty:cart[id]})),total:subtotal+(subtotal>=999?0:49),status:"Demo order placed"};orders.unshift(order);localStorage.setItem("pehnloOrders",JSON.stringify(orders));cart={};saveCart();renderCart();renderOrders();showView("orders");toast("Demo order placed")}
+function renderOrders(){let el=document.getElementById("ordersContent");el.innerHTML=orders.length?orders.map(o=>`<div class="summary" style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;gap:8px"><b>Order #${o.id}</b><b>${money(o.total)}</b></div><p class="fine">${o.date}</p><div style="font-size:12px;line-height:1.8">${o.items.map(i=>`${i.name} × ${i.qty}`).join("<br>")}</div><div style="margin-top:12px;background:#fff;padding:9px;border-radius:8px;font-size:12px">● ${o.status}</div></div>`).join(""):'<div class="empty"><strong>No orders yet</strong>Your placed demo orders will appear here.</div>'}
+function showView(name){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(name+"View").classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===name));if(name==="cart")renderCart();if(name==="orders")renderOrders();window.scrollTo({top:0,behavior:"smooth"})}
+function changeLocation(){let v=prompt("Enter delivery area:",document.getElementById("locationLabel").textContent);if(v&&v.trim())document.getElementById("locationLabel").textContent=v.trim()}
+function saveProfile(){let n=document.getElementById("profileName").value.trim(),p=document.getElementById("profilePhone").value.trim();if(!n){toast("Please enter your name");return}if(!/^\d{10}$/.test(p)){toast("Enter a valid 10-digit mobile number");return}localStorage.setItem("pehnloName",n);localStorage.setItem("pehnloPhone",p);toast("Saved on this device")}
+function toast(msg){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.style.cssText="position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#111;color:white;padding:12px 16px;border-radius:9px;font-size:12px;z-index:20;max-width:90%;text-align:center";document.body.appendChild(t)}t.textContent=msg;t.style.display="block";clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>t.style.display="none",2200)}
+function init(){renderCategories();renderProducts();renderCart();renderOrders();updateCount();document.getElementById("profileName").value=localStorage.getItem("pehnloName")||"";document.getElementById("profilePhone").value=localStorage.getItem("pehnloPhone")||""}
+init();
+</script>
+</body>
+</html>
